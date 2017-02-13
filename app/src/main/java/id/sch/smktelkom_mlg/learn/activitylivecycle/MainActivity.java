@@ -7,14 +7,16 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "LivecycleTAG";
+    private static final String TAG = "LivecycleTag";
     MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Log.d(TAG, "onCreate: ");
+        mediaPlayer = MediaPlayer.create(this, R.raw.song);
     }
 
     @Override
@@ -55,5 +57,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onDestroy: ");
         if (mediaPlayer != null)
             mediaPlayer.release();
+        
     }
 }
